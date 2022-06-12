@@ -1,5 +1,7 @@
 // import classess from "./AvailableMeals.module.css";
+import Cart from "../UI/Cart";
 import classess from "./AvailableMeals.module.css";
+import MealsItem from "./MealsItem/MealsItem";
 
 const DUMMY_MEALS = [
   {
@@ -30,11 +32,18 @@ const DUMMY_MEALS = [
 
 const AvailableMeals = () => {
   const mealsList = DUMMY_MEALS.map((meal) => (
-    <li key={meal.id}>{meal.name}</li>
+    <MealsItem
+      key={meal.id}
+      name={meal.name}
+      description={meal.description}
+      price={meal.price}
+    />
   ));
   return (
     <section className={classess.meals}>
-      <ul>{mealsList}</ul>
+      <Cart>
+        <ul>{mealsList}</ul>
+      </Cart>
     </section>
   );
 };
